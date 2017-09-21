@@ -14,8 +14,11 @@ int (*ezio_cb_t) (
    void *restrict dest,
    void const *restrict src, size_t srcsz, size_t *restrict destsz) ;
 
-int ezio (size_t in_bufsz, size_t out_bufsz, ezio_cb_t cb)
-__attribute__ ((leaf, nonnull (3), nothrow, warn_unused_result)) ;
+int ezio (
+   fd_t in, fd_t out,
+   size_t in_bufsz, size_t out_bufsz,
+   ezio_cb_t cb)
+__attribute__ ((leaf, nonnull (5), nothrow, warn_unused_result)) ;
 
 #ifdef __cplusplus
 }

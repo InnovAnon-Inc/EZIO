@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <ezio.h>
 
@@ -27,7 +28,9 @@ static int ezio_cb (
 
 __attribute__ ((nothrow, warn_unused_result))
 int main (void) {
-   error_check (ezio ((size_t) 10, (size_t) 8, ezio_cb) != 0)
+   error_check (ezio (
+      STDIN_FILENO, STDOUT_FILENO,
+      (size_t) 10, (size_t) 8, ezio_cb) != 0)
       return EXIT_FAILURE;
    return EXIT_SUCCESS;
 }

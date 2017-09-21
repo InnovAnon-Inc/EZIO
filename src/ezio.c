@@ -11,8 +11,11 @@
 
 #include <ezio.h>
 
-__attribute__ ((leaf, nonnull (3), nothrow, warn_unused_result))
-int ezio (size_t in_bufsz, size_t out_bufsz, ezio_cb_t cb) {
+__attribute__ ((leaf, nonnull (5), nothrow, warn_unused_result))
+int ezio (
+   fd_t in, fd_t out,
+   size_t in_bufsz, size_t out_bufsz,
+   ezio_cb_t cb) {
    char *restrict in_buf;
    char *restrict out_buf;
    in_buf = malloc (in_bufsz + 1);
@@ -25,7 +28,7 @@ int ezio (size_t in_bufsz, size_t out_bufsz, ezio_cb_t cb) {
    while (true) {
       ssize_t rd, wr;
       size_t destsz = out_bufsz;
-      rd = r_read (STDIN_FILENO, in_buf, in_bufsz);
+      rd = r_read (in, in_buf, in_bufsz);
       error_check (rd < 0) {
          free (out_buf);
          free (in_buf);
@@ -44,7 +47,7 @@ int ezio (size_t in_bufsz, size_t out_bufsz, ezio_cb_t cb) {
          return -4;
       }
 
-      wr = r_write (STDOUT_FILENO, out_buf, destsz);
+      wr = r_write (out, out_buf, destsz);
       error_check (wr < 0) {
          free (out_buf);
          free (in_buf);
