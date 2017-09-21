@@ -6,7 +6,7 @@
 #define __STDC_VERSION__ 200112L
 
 #include <stdlib.h>
-#include <strings.h>
+#include <string.h>
 
 #include <ezio.h>
 
