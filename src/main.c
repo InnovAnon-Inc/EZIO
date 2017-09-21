@@ -10,6 +10,7 @@
 
 #include <ezio.h>
 
+TODO (this macro has been moved to glitter.h)
 #ifndef min
 #define min(A, B) ((A) < (B) ? (A) : (B))
 #endif
@@ -24,7 +25,7 @@ static int ezio_cb (
    return 0;
 }
 
-__attribute__ ((leaf, nothrow, warn_unused_result))
+__attribute__ ((nothrow, warn_unused_result))
 int main (void) {
    error_check (ezio ((size_t) 10, (size_t) 8, ezio_cb) != 0)
       return EXIT_FAILURE;
