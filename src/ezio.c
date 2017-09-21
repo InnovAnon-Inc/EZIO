@@ -45,10 +45,15 @@ int ezio (size_t in_bufsz, size_t out_bufsz, ezio_cb_t cb) {
       }
 
       wr = r_write (STDOUT_FILENO, out_buf, destsz);
-      error_check (wr != destsz) {
+      error_check (wr < 0) {
          free (out_buf);
          free (in_buf);
          return -5;
+      }
+      error_check ((size_t) wr != destsz) {
+         free (out_buf);
+         free (in_buf);
+         return -6;
       }
    }
    __builtin_unreachable ();
