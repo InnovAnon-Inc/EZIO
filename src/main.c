@@ -6,8 +6,13 @@
 #define __STDC_VERSION__ 200112L
 
 #include <stdlib.h>
+#include <strings.h>
 
 #include <ezio.h>
+
+#ifndef min
+#define min(A, B) ((A) < (B) ? (A) : (B))
+#endif
 
 __attribute__ ((leaf, nonnull (1, 2, 4), nothrow, warn_unused_result))
 static int ezio_cb (
