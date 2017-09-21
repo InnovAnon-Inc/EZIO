@@ -14,7 +14,7 @@
 #define min(A, B) ((A) < (B) ? (A) : (B))
 #endif
 
-__attribute__ ((leaf, nonnull (1, 2, 4), nothrow, warn_unused_result))
+__attribute__ ((nonnull (1, 2, 4), nothrow, warn_unused_result))
 static int ezio_cb (
    void *restrict dest,
    void const *restrict src,
@@ -26,6 +26,7 @@ static int ezio_cb (
 
 __attribute__ ((leaf, nothrow, warn_unused_result))
 int main (void) {
-   error_check (ezio (10, 8, ezio_cb) != 0) return EXIT_FAILURE;
+   error_check (ezio ((size_t) 10, (size_t) 8, ezio_cb) != 0)
+      return EXIT_FAILURE;
    return EXIT_SUCCESS;
 }
