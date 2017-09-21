@@ -13,8 +13,8 @@
 
 __attribute__ ((leaf, nonnull (3), nothrow, warn_unused_result))
 int ezio (size_t in_bufsz, size_t out_bufsz, ezio_cb_t cb) {
-   void *restrict in_buf;
-   void *restrict out_buf;
+   char *restrict in_buf;
+   char *restrict out_buf;
    in_buf = malloc (in_bufsz + 1);
    error_check (in_buf == NULL) return -1;
    out_buf = malloc (out_bufsz);
