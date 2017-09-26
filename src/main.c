@@ -11,11 +11,6 @@
 
 #include <ezio.h>
 
-TODO (this macro has been moved to glitter.h)
-#ifndef min
-#define min(A, B) ((A) < (B) ? (A) : (B))
-#endif
-
 __attribute__ ((nonnull (1, 2, 4), nothrow, warn_unused_result))
 static int ezio_cb (
    void *restrict dest,

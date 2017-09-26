@@ -11,6 +11,8 @@
 
 #include <ezio.h>
 
+TODO (ezio_alloc)
+
 __attribute__ ((leaf, nonnull (5), nothrow, warn_unused_result))
 int ezio (
    fd_t in, fd_t out,
@@ -39,6 +41,7 @@ int ezio (
          free (in_buf);
          return 0;
       }
+      TODO (this belongs in the client code)
       in_buf[(size_t) rd] = '\0';
 
       error_check (cb (out_buf, in_buf, (size_t) rd, &destsz) != 0) {
