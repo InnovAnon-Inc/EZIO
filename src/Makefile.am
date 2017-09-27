@@ -9,5 +9,5 @@ ezio_LDADD = libezio.la -lrestart
 #ezio_CFLAGS =
 
 AM_CPPFLAGS = -D__STDC_INT64__
-AM_CPPFLAGS += -I $(srcdir)/glitter/src
-AM_CPPFLAGS += -I $(srcdir)/restart/src
+AM_CPPFLAGS += -I $(srcdir)/../glitter/src
+AM_CPPFLAGS += -I $(srcdir)/../restart/src
