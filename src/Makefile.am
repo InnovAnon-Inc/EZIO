@@ -6,7 +6,7 @@ AM_CPPFLAGS += $(top_srcdir)/glitter/src
 SUBDIRS += ../restart
 AM_CPPFLAGS += -I $(top_srcdir)/restart/src
 
-LIBEZIO_LIBADD = ../restart/src/.libs/librestart.la $(LIBRESTART_LIBADD)
+include Makefile-LIBADD.inc
 
 lib_LTLIBRARIES = libezio.la
 include_HEADERS = ezio.h
