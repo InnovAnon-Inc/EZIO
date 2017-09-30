@@ -1,13 +1,17 @@
-lib_LTLIBRARIES = libezio.la
-libezio_la_SOURCES = ezio.c
-include_HEADERS = ezio.h
-libezio_la_LIBADD = -lrestart
+LIBEZIO_LIBADD = ../restart/src/.libs/librestart.la $(LIBRESTART_LIBADD)
 
-bin_PROGRAMS = ezio
-ezio_SOURCES = main.c
-ezio_LDADD = libezio.la -lrestart
+lib_LTLIBRARIES = libezio.la
+include_HEADERS = ezio.h
+libezio_la_LIBADD = $(LIBEZIO_LIBADD)
+
+bin_PROGRAMS = ezio-test
+ezio_test_LDADD = libezio.la $(LIBEZIO_LIBADD)
 #ezio_CFLAGS =
 
 AM_CPPFLAGS = -D__STDC_INT64__
-AM_CPPFLAGS += -I $(srcdir)/../glitter/src
-AM_CPPFLAGS += -I $(srcdir)/../restart/src
+
+SUBDIRS = ../glitter
+AM_CPPFLAGS += ../glitter/src
+
+SUBDIRS += ../restart
+AM_CPPFLAGS += -I ../restart/src
