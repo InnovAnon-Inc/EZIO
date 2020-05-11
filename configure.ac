@@ -25,6 +25,12 @@ AC_CHECK_LIB([stdlib],[malloc,free])
 AC_CHECK_LIB([restart],[r_read,r_write])
 AC_CHECK_LIB([stdlib],[memcpy])
 
+LIBEZIO_LIBADD="`PATH=src:$PATH libezio_config --libs`"
+AC_SUBST(LIBEZIO_LIBADD)
+
+EZIO_TEST_LIBADD="libezio.la `PATH=src:$PATH ezio_test_config --libs`"
+AC_SUBST(EZIO_TEST_LIBADD)
+
 INNOVANON_WARNINGS([])
 
 AC_OUTPUT
