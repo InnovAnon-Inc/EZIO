@@ -4,6 +4,3 @@
 [submodule "restart"]
 	path = restart
 	url = https://github.com/InnovAnon-Inc/restart.git
-[submodule "glitter"]
-	path = glitter
-	url = https://github.com/InnovAnon-Inc/glitter.git
