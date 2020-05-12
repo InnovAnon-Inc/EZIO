@@ -2,5 +2,6 @@
 set -eu
 [ $# -eq 1 ]
 [ $1 == --libs ]
-libezio_config --libs
+#libezio_config --libs
+echo -lezio `libezio_config --libs`
 
