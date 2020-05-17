@@ -9,16 +9,21 @@ AM_CPPFLAGS = -D__STDC_INT64__
 #endif
 
 #include Makefile-LIBADD.inc
-dist_bin_SCRIPTS = libezio_config ezio_test_config
+#dist_bin_SCRIPTS = libezio_config ezio_test_config
 
 lib_LTLIBRARIES = libezio.la
 include_HEADERS = ezio.h
 #libezio_la_LIBADD = $(LIBEZIO_LIBADD)
-libezio_la_LIBADD = @LIBEZIO_LIBADD@
+#libezio_la_LIBADD = @LIBEZIO_LIBADD@
+libezio_la_CPPFLAGS = $(RESTART_CFLAGS)
+libezio_la_LIBADD   = $(RESTART_LIBS)
 
 bin_PROGRAMS = ezio-test
 #ezio_test_LDADD = libezio.la $(LIBEZIO_LIBADD)
 #ezio_test_LDADD = $(EZIO_TEST_LIBADD)
-ezio_test_LDADD = @EZIO_TEST_LIBADD@
 #ezio_CFLAGS =
-EXTRA_ezio_test_DEPENDENCIES = libezio.la
+
+#ezio_test_LDADD = @EZIO_TEST_LIBADD@
+#EXTRA_ezio_test_DEPENDENCIES = libezio.la
+ezio_test_CPPFLAGS = $(RESTART_CFLAGS)
+ezio_test_LDFLAGS  = -lezio $(RESTART_LIBS)

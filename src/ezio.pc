@@ -1,0 +1,17 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+ezio_utility=ezio-test
+
+Name: libezio
+Description: ezio library
+Version: 0.0
+Libs: -L${libdir} -lezio
+#Cflags: -I${includedir}/ezio
+Cflags: -I${includedir}
+#Requires: @AX_PACKAGE_REQUIRES@
+#Requires.private: @AX_PACKAGE_REQUIRES_PRIVATE@
+Requires:
+Requires.private: restart

@@ -8,7 +8,10 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
  Makefile
  src/Makefile
+ src/ezio.pc
 ])
+
+PKG_PROG_PKG_CONFIG
 
 AC_ARG_ENABLE([use-submodules],
     AS_HELP_STRING([--enable-use-submodules], [Enable use submodules]))
@@ -27,13 +30,18 @@ AC_CHECK_LIB([stdlib],[memcpy])
 
 #srcdir = @srcdir@
 #LIBEZIO_LIBADD="`PATH=$(srcdir)src:$PATH libezio_config --libs`"
-LIBEZIO_LIBADD="`PATH=src:$PATH libezio_config --libs`"
-AC_SUBST(LIBEZIO_LIBADD)
+#LIBEZIO_LIBADD="`PATH=src:$PATH libezio_config --libs`"
+#AC_SUBST(LIBEZIO_LIBADD)
 
 #EZIO_TEST_LIBADD="libezio.la `PATH=src:$PATH ezio_test_config --libs`"
 #EZIO_TEST_LIBADD="`PATH=$(srcdir)src:$PATH ezio_test_config --libs`"
-EZIO_TEST_LIBADD="`PATH=src:$PATH ezio_test_config --libs`"
-AC_SUBST(EZIO_TEST_LIBADD)
+#EZIO_TEST_LIBADD="`PATH=src:$PATH ezio_test_config --libs`"
+#AC_SUBST(EZIO_TEST_LIBADD)
+
+PKG_CHECK_MODULES([RESTART], [restart],,)
+#AC_SUBST(restart_CFLAGS)
+#AC_SUBST(restart_LIBS)
+#AX_PKG_CHECK_MODULES([RESTART], [librestart >= 1.0])
 
 INNOVANON_WARNINGS([])
 

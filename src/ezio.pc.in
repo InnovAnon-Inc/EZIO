@@ -1,0 +1,17 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+ezio_utility=ezio-test
+
+Name: @PACKAGE_NAME@
+Description: ezio library
+Version: @PACKAGE_VERSION@
+Libs: -L${libdir} -lezio
+#Cflags: -I${includedir}/ezio
+Cflags: -I${includedir}
+#Requires: @AX_PACKAGE_REQUIRES@
+#Requires.private: @AX_PACKAGE_REQUIRES_PRIVATE@
+Requires:
+Requires.private: restart
