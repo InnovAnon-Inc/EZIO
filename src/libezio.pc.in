@@ -11,5 +11,5 @@ Version: @PACKAGE_VERSION@
 Libs: -L${libdir} -lezio
 Cflags: -I${includedir}
 Requires:
-Requires.private: restart
+Requires.private: -lrestart
 
