@@ -24,6 +24,6 @@ bin_PROGRAMS = ezio-test
 #ezio_CFLAGS =
 
 #ezio_test_LDADD = @EZIO_TEST_LIBADD@
-#EXTRA_ezio_test_DEPENDENCIES = libezio.la
+EXTRA_ezio_test_DEPENDENCIES = libezio.la
 ezio_test_CPPFLAGS = $(RESTART_CFLAGS)
 ezio_test_LDFLAGS  = -lezio $(RESTART_LIBS)
