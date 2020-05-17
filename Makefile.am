@@ -1,9 +1,9 @@
 # Install the pkg-config file.
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = src/ezio.pc
+pkgconfig_DATA = src/ezio.pc src/ezio-test.pc
 
 DISTCLEANFILES = $(pkgconfig_DATA)
-EXTRA_DIST = src/ezio.pc.in
+EXTRA_DIST = src/ezio.pc.in src/ezio-test.pc.in
 
 #SUBDIRS = glitter restart src
 SUBDIRS = src
