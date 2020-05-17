@@ -11,5 +11,6 @@ Version: @PACKAGE_VERSION@
 Libs: -L${libdir} -lezio
 Cflags: -I${includedir}
 Requires:
-Requires.private: -lezio
+#Requires.private: -lezio
+Requires.private: libezio
 
