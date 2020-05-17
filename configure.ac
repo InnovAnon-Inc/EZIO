@@ -28,6 +28,7 @@ AC_CHECK_LIB([stdlib],[malloc,free])
 #AC_CHECK_LIB([restart],[r_read,r_write])
 AC_CHECK_LIB([stdlib],[memcpy])
 
+PKG_CHECK_MODULES([GLITTER], [glitter],,)
 PKG_CHECK_MODULES([RESTART], [librestart],,)
 
 INNOVANON_WARNINGS([])
