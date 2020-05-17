@@ -5,11 +5,11 @@ includedir=@includedir@
 
 ezio_utility=ezio-test
 
-Name: @PACKAGE_NAME@
-Description: ezio library
+Name: @PACKAGE_NAME@ test
+Description: ezio library test application
 Version: @PACKAGE_VERSION@
 Libs: -L${libdir} -lezio
 Cflags: -I${includedir}
 Requires:
-Requires.private: restart
+Requires.private: EZIO
 

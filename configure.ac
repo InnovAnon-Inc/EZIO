@@ -9,6 +9,7 @@ AC_CONFIG_FILES([
  Makefile
  src/Makefile
  src/ezio.pc
+ src/ezio-test.pc
 ])
 
 PKG_PROG_PKG_CONFIG
@@ -18,31 +19,18 @@ AC_ARG_ENABLE([use-submodules],
 AM_CONDITIONAL([USE_SUBMODULES], [test x"$enable_use_submodules" = "xyes"])
 
 AC_CONFIG_MACRO_DIR([m4])
-#AC_CONFIG_SUBDIRS([glitter restart])
 
 AC_CHECK_HEADERS([stdlib.h])
 AC_CHECK_HEADERS([strings.h])
-AC_CHECK_HEADERS([glitter.h restart.h])
+#AC_CHECK_HEADERS([glitter.h restart.h])
 
 AC_CHECK_LIB([stdlib],[malloc,free])
-AC_CHECK_LIB([restart],[r_read,r_write])
+#AC_CHECK_LIB([restart],[r_read,r_write])
 AC_CHECK_LIB([stdlib],[memcpy])
 
-#srcdir = @srcdir@
-#LIBEZIO_LIBADD="`PATH=$(srcdir)src:$PATH libezio_config --libs`"
-#LIBEZIO_LIBADD="`PATH=src:$PATH libezio_config --libs`"
-#AC_SUBST(LIBEZIO_LIBADD)
-
-#EZIO_TEST_LIBADD="libezio.la `PATH=src:$PATH ezio_test_config --libs`"
-#EZIO_TEST_LIBADD="`PATH=$(srcdir)src:$PATH ezio_test_config --libs`"
-#EZIO_TEST_LIBADD="`PATH=src:$PATH ezio_test_config --libs`"
-#AC_SUBST(EZIO_TEST_LIBADD)
-
 PKG_CHECK_MODULES([RESTART], [restart],,)
-#AC_SUBST(restart_CFLAGS)
-#AC_SUBST(restart_LIBS)
-#AX_PKG_CHECK_MODULES([RESTART], [librestart >= 1.0])
 
 INNOVANON_WARNINGS([])
 
 AC_OUTPUT
+
