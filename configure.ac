@@ -1,4 +1,4 @@
-AC_INIT([ezio], [0.0], [laurence.a.maddox@gmail.com])
+AC_INIT([libezio], [0.0], [laurence.a.maddox@gmail.com])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_PROG_CC
